@@ -1,10 +1,13 @@
 table
   display: block
   overflow-x: auto
-  white-space: nowrap
   width: 100%
   border: $border
   border-collapse: collapse
+
+  @media (max-width: map-get($breakpoints, md))
+    // will break words on desktop and won't (we have x scroll here) on mobile
+    white-space: pre
 
   p
     margin: 0
