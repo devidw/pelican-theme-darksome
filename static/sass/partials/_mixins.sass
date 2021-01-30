@@ -1,0 +1,14 @@
+
+/// animate to
+=keyframes-to($name, $pairs)
+  @keyframes #{$name}
+    to
+      @each $property, $value in $pairs
+        #{$property}: $value
+
+/// call animation
+=animation($properties)
+  @each $property, $value in $properties
+    animation-#{$property}: $value
+  // keep styles after animation finished
+  animation-fill-mode: forwards
