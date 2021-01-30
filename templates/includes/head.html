@@ -1,0 +1,28 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Pelican">
+
+{% if article and article.noindex or page and page.noindex %}
+  <meta name="robots" content="noindex">
+{% endif %}
+
+{% if page and page.description %}
+  <meta name="description" content="{{ page.description }}">
+{% endif %}
+
+{% if article %}
+  {% set meta_author = AUTHOR %}
+  {% if article.author %}
+    {% set meta_author = article.author %}
+  {% endif %}
+  <meta name="author" content="{{ meta_author }}">
+{% endif %}
+
+{% if MEDIA['favicon'] %}
+<link rel="icon" href="{{ SITEURL }}/{{ MEDIA['favicon'] }}">
+{% endif %}
+
+<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/sass/import.min.css">
+
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/vendor/jquery-3.5.1.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/utilities.js"></script>

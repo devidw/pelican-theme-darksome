@@ -1,0 +1,21 @@
+body > footer
+  padding: .7rem 0
+  background: linear-gradient(to top, transparentize(map-get($colors, grey), .1), transparentize(map-get($colors, grey), .5))
+  backdrop-filter: blur(10px)
+
+  .container
+    @media (min-width: map-get($breakpoints, md))
+      display: flex
+      justify-content: space-between
+
+    span.copyright
+      display: block
+      margin-top: .2rem
+      font-size: .8rem
+      color: map-get($colors, lightgrey)
+
+      @media (max-width: map-get($breakpoints, md))
+        margin-top: .5rem
+
+    ul
+      margin: 0

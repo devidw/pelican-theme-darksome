@@ -1,0 +1,17 @@
+{% extends "./layouts/base.html" %}
+
+{% block content %}
+<main class="home container">
+
+  <img src="{{ SITEURL }}/{{ MEDIA['background'] }}" alt="clouds">
+
+  <section>
+    {% if MEDIA['logo'] %}
+    <img src="{{ SITEURL }}/{{ MEDIA['logo'] }}" alt="logo">
+    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn7mFsiMJz_2-doVYyFg5B3SEIYai1XvrGaA&usqp=CAU" alt="logo"> -->
+    {% endif %}
+    <h1>{{ SITENAME }}</h1>
+  </section>
+
+</main>
+{% endblock %}

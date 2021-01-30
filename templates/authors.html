@@ -1,0 +1,17 @@
+{% extends "./layouts/base.html" %}
+
+{% block title %}Authors{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1>Authors</h1>
+  <ul class="icon-list">
+    {% for author, articles in authors|sort %}
+    <li class="author">
+      <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+      ({{ articles|count }})
+    </li>
+    {% endfor %}
+  </ul>
+</main>
+{% endblock %}

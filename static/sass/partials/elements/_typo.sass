@@ -1,0 +1,27 @@
+@for $i from 1 through 6
+  h#{$i}
+    font-family: map-get($fonts, head)
+    letter-spacing: 0.05rem
+
+a
+  outline: none
+  text-decoration: none
+
+  &[href]
+    color: map-get($colors, blue)
+
+  &:not([href])
+    cursor: not-allowed
+
+  &:focus
+    text-decoration: underline
+
+  @media (hover: hover) and (pointer: fine)
+    &[href]
+      &:hover
+        text-decoration: underline
+
+hr
+  border-style: solid
+  border-color: map-get($colors, lightgrey)
+  border-radius: 1px

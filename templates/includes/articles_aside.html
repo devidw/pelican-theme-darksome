@@ -1,0 +1,70 @@
+<aside>
+  <div class="cards">
+
+    {% if categories %}
+    <section class="card">
+      <details open>
+        <summary>
+          <h3>categories</h3>
+        </summary>
+        <ul class="icon-list">
+          {% for aside_category, null in categories | sort %}
+          <li class="category">
+            <a
+            {% if not category or not aside_category == category %}
+            href="{{ SITEURL }}/{{ aside_category.url }}"
+            {% endif %}
+            >
+            {{ aside_category }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </section>
+    {% endif %}
+
+    {% if tags %}
+    <section class="card">
+      <details open>
+        <summary>
+          <h3>tags</h3>
+        </summary>
+        <ul class="icon-list">
+          {% for aside_tag, null in tags | sort %}
+          <li class="tag">
+            <a
+            {% if not tag or not aside_tag == tag %}
+            href="{{ SITEURL }}/{{ aside_tag.url }}"
+            {% endif %}
+            >{{ aside_tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </section>
+    {% endif %}
+
+    {% if authors %}
+    <section class="card">
+      <details open>
+        <summary>
+          <h3>authors</h3>
+        </summary>
+        <ul class="icon-list">
+          {% for aside_author, null in authors | sort %}
+          <li class="author">
+            <a
+            {% if not author or not aside_author == author %}
+            href="{{ SITEURL }}/{{ aside_author.url }}"
+            {% endif %}
+            >{{ aside_author }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </section>
+    {% endif %}
+
+  </div>
+</aside>

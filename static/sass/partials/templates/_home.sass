@@ -1,0 +1,36 @@
+.home
+  // background: url(../img/clouds.webp)
+  // background-size: cover
+  // background-repeat: no-repeat
+  display: flex
+  justify-content: center
+  align-items: center
+
+  // full screen background image
+  & > img
+    -webkit-user-drag: none
+    -khtml-user-drag: none
+    -moz-user-drag: none
+    -o-user-drag: none
+    user-drag: none
+    z-index: 0
+    position: fixed
+    left: 0
+    bottom: 0
+    min-width: 100vw
+    min-width: 100vw
+
+  section
+    z-index: 1
+    // max-height: 50vh
+
+    img
+      width: 100%
+
+      & + h1
+        margin-top: .5rem
+
+    h1
+      font-family: map-get($fonts, body)
+      text-transform: uppercase
+      text-align: center

@@ -1,0 +1,17 @@
+<article class="post-entry">
+  <header>
+    <h2>
+      <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark">
+        {{ article.title }}
+      </a>
+      {% if TRANSLATIONS and TRANSLATIONS[article.lang]['flag'] %}
+      <span>{{ TRANSLATIONS[article.lang]['flag'] }}</span>
+      {% endif %}
+    </h2>
+  </header>
+  <section>
+    {% if article.description %}
+    <span>{{ article.description }}</span>
+    {% endif %}
+  </section>
+</article>

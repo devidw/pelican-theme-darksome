@@ -1,0 +1,20 @@
+code
+  font-family: map-get($fonts, code)
+  border-radius: map-get($sizes, border-radius) / 2
+  // inline code blocks
+  background: map-get($colors, grey)
+  padding: 0 .2rem
+
+// don't apply styles of inline codes to block codes
+pre code
+  background: transparent
+  padding: 0
+  line-height: 150%
+
+.highlight
+  display: block
+  overflow-x: auto
+  white-space: pre
+  padding: 0 1rem
+  border: $border
+  border-radius: map-get($sizes, border-radius)

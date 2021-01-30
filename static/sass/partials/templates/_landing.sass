@@ -1,0 +1,102 @@
+#landing-vid
+  position: fixed
+  z-index: -1
+  left: 50
+  bottom: 0
+  min-width: 100%
+  min-height: 100%
+
+main.landing-container
+  display: flex
+  align-items: center
+  margin: auto
+
+.landing
+  $start: 5.5s
+
+  // $start: 0s
+
+  // display: none; // fadeIn with jQuery
+  font-family: "Fira Code", monospace
+  text-align: center
+
+  .toCode
+    display: inline-block
+    padding: 1.5vw 3vw 0
+    font-size: 8vw
+
+    // line-height: 100%;
+    font-weight: bold
+    color: map-get($colors, light)
+
+    // color text to grey
+    +animation((name: color-all, delay: $start + 0.5s, duration: 1s, timing-function: ease-in))
+
+  .bg-box
+    transform: scale(0)
+
+    +rounded-borders(3vw)
+
+    border: 1.5px solid transparentize(map-get($colors, light), 0.8)
+    box-shadow: 0 0 14px 7px #0002
+    background: transparentize(map-get($atom-colors, bg), 0.5)
+
+    // blur animation, darken animation
+    // name, duration, delay
+    animation: in 0.67s 2s ease-in, color-bg 1s ($start + 0.5s) ease-in
+    animation-fill-mode: forwards
+
+  // dev[id='wolf']
+  #dev
+    +animation((name: color-dev, delay: $start, duration: 1s, timing-function: ease-in))
+
+    #a-e
+      +animation((name: rotate-a, delay: $start, duration: 1s))
+
+      display: inline-block
+      padding-bottom: 1.1vw
+
+  #attr
+    // open square bracket
+    &::before
+      +content-animation((name: add-open-bracket, delay: $start + 0.7s, duration: 1s))
+
+    #id
+      +animation((name: color-id, delay: $start + 1s, duration: 1s))
+
+      // equal sign
+      &::after
+        +content-animation((name: add-equal, delay: $start + 0.9s, duration: 1s))
+
+    #wolf
+      +animation((name: color-wolf, delay: $start + 1.1s, duration: 1s))
+
+      // open quote
+      &::before
+        +content-animation((name: add-quote, delay: $start + 1.1s, duration: 1s))
+
+        content: " "
+
+        // leading space
+
+      // close quote
+      &::after
+        +content-animation((name: add-quote, delay: $start + 1.1s, duration: 1s))
+
+    // close square bracket
+    &::after
+      +content-animation((name: add-closing-bracket, delay: $start + 0.7s, duration: 1s))
+
+// create keyframe animations
++keyframes-to(rotate-a, (transform: rotate(180deg)))
+
++keyframes-to(in, (backdrop-filter: blur(10px), transform: scale(1)))
++keyframes-to(color-bg, (background-color: transparentize(map-get($atom-colors, bg), 0.2)))
++keyframes-to(color-all, (color: map-get($atom-colors, grey)))
++keyframes-to(color-dev, (color: map-get($atom-colors, red)))
++keyframes-to(color-id, (color: map-get($atom-colors, orange)))
++keyframes-to(color-wolf, (color: map-get($atom-colors, green)))
++keyframes-to(add-open-bracket, (content: "["))
++keyframes-to(add-closing-bracket, (content: "]"))
++keyframes-to(add-quote, (content: "'"))
++keyframes-to(add-equal, (content: "=", color: map-get($atom-colors, purple)))

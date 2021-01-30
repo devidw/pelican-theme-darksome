@@ -1,0 +1,108 @@
+
+// grid of article and aside
+.sidebar-container
+  // +container()
+  @media (min-width: map-get($breakpoints, md))
+    display: grid
+    grid-template-columns: 30% 70%
+    grid-column-gap: map-get($sizes, grid-gap)
+
+    // @media (min-width: map-get($breakpoints, lg))
+    //   grid-template-columns: 1fr 5fr
+
+aside
+  .cards
+    z-index: 0
+    position: sticky
+    top: calc(var(--header-height) * 1.5)
+
+    @media (max-width: map-get($breakpoints, md))
+      margin-top: 1.5rem
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-column-gap: map-get($sizes, grid-gap)
+
+    details
+      h3
+        margin: 0
+        text-align: center
+
+      &[open]
+        h3
+          border-bottom: 0.1rem dashed transparentize(map-get($colors, lightgrey), 0.5)
+          padding-bottom: 0.3rem
+          margin-bottom: 1rem
+
+
+        summary h3::before
+          content: '- '
+
+      summary
+        list-style: none
+
+        @media (hover: hover) and (pointer: fine)
+          &:hover
+            cursor: pointer
+
+        &:focus
+          outline: none
+
+          h3::before
+            color: map-get($colors, blue)
+
+        h3::before
+          content: '+ '
+
+    li
+      margin-bottom: 0.5rem
+
+    nav
+      word-break: break-all
+
+      ul
+        padding: 0
+
+      @for $i from 2 through 6
+        li[data-nav-level='#{$i}']
+          margin-left: #{$i * 0.5}rem
+
+
+  .card
+    // height: 100%
+    padding: 1rem
+    margin-bottom: 1rem
+
+    +rounded-borders(0.5rem)
+
+    background: map-get($colors, grey)
+    color: map-get($colors, lightgrey)
+
+ul.icon-list
+  padding-left: 1rem
+
+  li
+    padding-left: 0.25rem
+    margin-bottom: 0.5rem
+
+    &::marker
+      font-family: 'Material Icons Outlined'
+
+  .published::marker
+    content: 'upgrade'
+
+  .modified::marker
+    content: 'edit'
+
+  .category::marker
+    content: 'label'
+
+  .tag
+    &::marker
+      content: 'tag'
+
+  .author
+    &::marker
+      content: 'person'
+
+    address
+      font-style: normal

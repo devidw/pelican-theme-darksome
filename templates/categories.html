@@ -1,0 +1,19 @@
+{% extends "./layouts/base.html" %}
+
+{% block title %}
+Categories
+{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1>Categories</h1>
+  <ul class="icon-list">
+    {% for category, articles in categories|sort %}
+    <li class="category">
+      <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+      ({{ articles|count }})
+    </li>
+    {% endfor %}
+  </ul>
+</main>
+{% endblock %}

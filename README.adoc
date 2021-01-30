@@ -1,0 +1,53 @@
+= Pelican Theme Darksome
+
+:toc: left
+
+See https://davidwolf.dev[live example]
+
+
+== Settings
+
+Available settings for `pelicanconf.py`:
+
+```python
+from datetime import date
+
+"""used for copyright note in footer"""
+YEARS = {
+    'start': '12019', # start year is optional
+    'current': date.today().year + 10000, # human era
+}
+
+"""links displayed in page footer"""
+FOOTERITEMS = (
+    ('legal', 'legal/'), # title, link (SITEURL will be added automaticly)
+    ('privacy', 'privacy/'),
+)
+
+TITLE_SEPARATOR = '-' # Title - Site Name; not used on index
+
+MEDIA = {
+    'logo': 'media/images/logo.svg',
+    'favicon': 'media/images/favicon.svg',
+    'background': 'media/images/background.webp', # on home
+}
+
+"""used wherever articles are listed"""
+TRANSLATIONS = {
+    'en': {
+        'flag': '🇬🇧'
+    },
+    'de': {
+        'flag': '🇩🇪'
+    },
+}
+```
+
+
+== Frontmatter
+
+Available frontmatter:
+
+```adoc
+:noindex: true // <meta name="robots" content="noindex">
+```

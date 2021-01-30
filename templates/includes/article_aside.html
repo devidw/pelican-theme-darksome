@@ -1,0 +1,57 @@
+<aside>
+  <div class="cards">
+    <footer class="card">
+      <details open>
+        <summary>
+          <h3>meta</h3>
+        </summary>
+        <ul class="icon-list">
+          <!-- modified -->
+          {% if article.modified %}
+          <li class="modified">
+            <time datetime="{{ article.modified.isoformat() }}">
+              {{ article.locale_modified }}
+            </time>
+          </li>
+          {% endif %}
+          <!-- published -->
+          <li class="published">
+            <time datetime="{{ article.date.isoformat() }}">
+              {{ article.locale_date }}
+            </time>
+          </li>
+          <!-- category -->
+          {% if article.category %}
+          <li class="category">
+            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+          </li>
+          {% endif %}
+          <!-- tags -->
+          {% if article.tags %}
+          <li class="tag">
+            {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            {% endfor %}
+          </li>
+          {% endif %}
+          <!-- author -->
+          {% if article.authors %}
+          <li class="author">
+            <address>
+              <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+            </address>
+          </li>
+          {% endif %}
+        </ul>
+      </details>
+    </footer>
+    <nav class="card">
+      <details open>
+        <summary>
+          <h3>contents</h3>
+        </summary>
+        <ul></ul>
+      </details>
+    </nav>
+  </div>
+</aside>

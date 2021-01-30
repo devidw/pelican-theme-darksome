@@ -1,0 +1,35 @@
+.article
+  hyphens: auto
+
+  @media (max-width: map-get($breakpoints, md))
+    word-break: break-all
+
+  .entry-content
+    @for $i from 1 through 6
+      h#{$i}
+        padding-bottom: 2rem / $i
+        border-bottom: 0.1rem solid map-get($colors, grey)
+        margin: (8rem / $i) 0 0.5rem 0
+        font-size: 6rem / $i
+
+        @if $i > 1
+          color: darken(map-get($colors, green), 3 * $i)
+
+        & + p
+          margin-top: 0
+
+    p, li
+      line-height: 150%
+
+    a[href^='#']
+      margin-left: 0.4rem
+      color: map-get($colors, grey)
+      transition: 0.2s
+
+      &:focus
+        color: map-get($colors, green)
+
+      @media (hover: hover) and (pointer: fine)
+        &:hover
+          color: map-get($colors, green)
+          transition: 0.3s

@@ -1,0 +1,57 @@
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration
+  -webkit-appearance: none
+
+input[type="text"], input[type="search"], textarea
+  box-sizing: border-box
+  width: 100%
+
+textarea
+  resize: vertical
+
+input[type="text"], input[type="search"], textarea, button
+  padding: 0.35rem 0.5rem
+  border-width: 2px
+  border-style: solid
+
+  +rounded-borders(0.3rem)
+
+  outline: none
+  margin-bottom: 1rem
+  color: map-get($colors, light)
+
+  &:focus
+    border-color: map-get($colors, blue)
+
+    &:invalid
+      border-color: map-get($colors, red)
+
+input[type="text"], input[type="search"], textarea
+  border-color: map-get($colors, grey)
+  background: transparent
+
+textarea
+  // 3 line heights + paddings + borders
+  min-height: calc(3rem * 1.5 + .7rem + 4px)
+  line-height: 150%
+
+button
+  padding: 0.35rem 0.5rem
+  border-color: lighten(map-get($colors, grey), 15%)
+  background: map-get($colors, grey)
+
+  &:focus
+    background: map-get($colors, darkgrey)
+    color: map-get($colors, blue)
+
+  @media (hover: hover) and (pointer: fine)
+    transition: 0.15s
+
+    &:hover
+      cursor: pointer
+      border-color: map-get($colors, blue)
+      background: map-get($colors, darkgrey)
+      color: map-get($colors, blue)
+      transition: 0.15s

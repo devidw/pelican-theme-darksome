@@ -1,0 +1,33 @@
+html
+  scroll-behavior: smooth
+  scroll-padding-top: calc(var(--header-height) * 1.5)
+
+body
+  // for bottom footer: https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  background: map-get($colors, dark)
+  color: map-get($colors, light)
+  font-family: map-get($fonts, body)
+
+  > main
+    flex: 1
+    padding-top: calc(var(--header-height) * 1.5)
+    padding-bottom: var(--header-height)
+
+.container
+  width: var(--container-width)
+  margin: auto
+
+ul.inline-list
+  padding-left: 0
+
+  li
+    display: inline
+
+    + li
+      margin-left: .6rem
+
+\::selection
+  background: map-get($colors, blue)

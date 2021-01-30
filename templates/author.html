@@ -1,0 +1,23 @@
+{% extends "./layouts/base.html" %}
+
+{% block title %}
+Author {{ author }}
+{% endblock %}
+
+{% block content %}
+<main class="sidebar-container container">
+
+  {% include './includes/articles_aside.html' %}
+
+  <ol id="post-entries">
+    {% for article in articles %}
+      {% if article.author == article.author %}
+        <li>
+          {% include './includes/article_preview.html' %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+
+</main>
+{% endblock %}

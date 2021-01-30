@@ -1,0 +1,24 @@
+<footer>
+  <div class="container">
+    <nav>
+      <ul class="inline-list">
+        {% if FOOTERITEMS %}
+          {% for title, link in FOOTERITEMS %}
+          <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+    <span class="copyright">
+      Copyright ©
+      {% if YEARS and YEARS['current'] %}
+      <time>
+        {% if YEARS['start'] %}
+          {{ YEARS['start'] }} -
+        {% endif %}
+        {{ YEARS['current'] }}
+      </time>
+      {% endif %}
+    </span>
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+table
+  display: block
+  overflow-x: auto
+  white-space: nowrap
+  width: 100%
+  border: $border
+  border-collapse: collapse
+
+  p
+    margin: 0
+
+  th, td
+    padding: 0.5rem
+
+  // setting bordwers on each `td` results in doubled borders around whole tables
+  tbody
+    tr + tr
+      border-top: $border
+
+    td + td
+      border-left: $border
+
+  thead
+    th
+      background: map-get($colors, grey)
+      letter-spacing: 0.5px

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+
+<head>
+  {% block head %}
+    <title>
+      {% if self.title() %}
+        {% block title %}{% endblock title %}
+        {% if TITLE_SEPARATOR %}
+          {{ TITLE_SEPARATOR }}
+        {% else %}
+          ―
+        {% endif %}
+      {% endif %}
+      {{ SITENAME }}
+    </title>
+    {% include './includes/head.html' %}
+  {% endblock %}
+</head>
+
+<body>
+  {% block header %}
+  {% include './includes/header.html' %}
+  {% endblock %}
+
+  {% block content %}{% endblock %}
+
+  {% block footer %}
+  {% include './includes/footer.html' %}
+  {% endblock %}
+
+  <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<header>
+  <div class="container">
+    <a href="{{ SITEURL }}/">
+      {% if MEDIA['logo'] and not page_name == 'index' %}
+      <img src="{{ SITEURL }}/{{ MEDIA['logo'] }}" alt="logo">
+      {% else %}
+      {{ SITENAME }}
+      {% endif %}
+    </a>
+    <nav>
+      <ul class="inline-list">
+        {% if MENUITEMS %}
+          {% for title, link in MENUITEMS %}
+            <li>
+              <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        {% if DISPLAY_PAGES_ON_MENU and pages %}
+          {% for page in pages %}
+            <li>
+              <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+
+        <!-- {% if DISPLAY_CATEGORIES_ON_MENU and categories %}
+          {% for category, null in categories %}
+            <li>
+              <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+            </li>
+          {% endfor %}
+        {% endif %} -->
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,21 @@
+{% extends "./layouts/base.html" %}
+
+{% block title %}
+Publications
+{% endblock %}
+
+{% block content %}
+<main class="sidebar-container container">
+
+  {% include './includes/articles_aside.html' %}
+
+  <ol id="post-entries">
+    {% for article in articles %}
+    <li>
+      {% include './includes/article_preview.html' %}
+    </li>
+    {% endfor %}
+  </ol>
+
+</main>
+{% endblock %}
