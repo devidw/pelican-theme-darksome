@@ -1,16 +1,14 @@
++keyframes-to(fadein, (opacity: 1))
 
 // grid of article and aside
 .sidebar-container
-  // +container()
   @media (min-width: map-get($breakpoints, md))
     display: grid
     grid-template-columns: 30% 70%
     grid-column-gap: map-get($sizes, grid-gap)
 
-    // @media (min-width: map-get($breakpoints, lg))
-    //   grid-template-columns: 1fr 5fr
-
 aside
+  // cards container
   .cards
     z-index: 0
     position: sticky
@@ -22,60 +20,80 @@ aside
       grid-template-columns: 1fr 1fr
       grid-column-gap: map-get($sizes, grid-gap)
 
-    details
-      h3
-        margin: 0
-        text-align: center
+    .card
+      // hide delayed cards
+      opacity: 0
+      padding: 1rem
+      border-radius: map-get($sizes, border-radius)
+      margin-bottom: 1rem
+      background: map-get($colors, grey)
+      color: map-get($colors, lightgrey)
+      box-shadow: 0px 0px 35px -12px #000000
 
-      &[open]
+      // delay each card fade-in
+      $duration: .35s
+      @for $i from 1 through 5
+        &:nth-child(0n+#{$i})
+          +animation((name: fadein, duration: $duration, timing-function: ease-in))
+
+          @if $i > 1
+            // all the before animations minus the first one
+            animation-delay: $i * $duration - $duration
+
+
+      details
         h3
-          border-bottom: 0.1rem dashed transparentize(map-get($colors, lightgrey), 0.5)
-          padding-bottom: 0.3rem
-          margin-bottom: 1rem
+          margin: 0
+          text-align: center
+          text-transform: uppercase
 
+        li
+          margin-bottom: 0.5rem
 
-        summary h3::before
-          content: '- '
+        &[open]
+          h3
+            border-bottom: 0.1rem dashed transparentize(map-get($colors, lightgrey), 0.5)
+            padding-bottom: 0.3rem
+            margin-bottom: 1rem
 
-      summary
-        list-style: none
+          summary h3::before
+            content: "- "
 
-        @media (hover: hover) and (pointer: fine)
-          &:hover
-            cursor: pointer
+        summary
+          list-style: none
 
-        &:focus
-          outline: none
+          @media (hover: hover) and (pointer: fine)
+            &:hover
+              cursor: pointer
+
+          &:focus
+            outline: none
+
+            h3::before
+              color: map-get($colors, blue)
 
           h3::before
-            color: map-get($colors, blue)
-
-        h3::before
-          content: '+ '
-
-    li
-      margin-bottom: 0.5rem
-
-    nav
-      word-break: break-all
-
-      ul
-        padding: 0
-
-      @for $i from 2 through 6
-        li[data-nav-level='#{$i}']
-          margin-left: #{$i * 0.5}rem
+            content: "+ "
 
 
-  .card
-    // height: 100%
-    padding: 1rem
-    margin-bottom: 1rem
 
-    +rounded-borders(0.5rem)
+  // table of contents card
+  nav
+    word-break: break-all
 
-    background: map-get($colors, grey)
-    color: map-get($colors, lightgrey)
+    ul
+      padding: 0.1rem 0
+
+      // box-shadow: inset 0 1rem 1rem map-get($colors, dark), inset 0 -1rem 1rem map-get($colors, dark), 0 -0.3rem 0.3rem map-get($colors, dark)
+
+      @media (min-width: map-get($breakpoints, md))
+        max-height: 50vh
+        overflow-y: scroll
+
+        @for $i from 2 through 6
+          li[data-nav-level='#{$i}']
+            margin-left: #{$i * 0.5}rem
+
 
 ul.icon-list
   padding-left: 1rem
@@ -85,24 +103,24 @@ ul.icon-list
     margin-bottom: 0.5rem
 
     &::marker
-      font-family: 'Material Icons Outlined'
+      font-family: "Material Icons Outlined"
 
   .published::marker
-    content: 'upgrade'
+    content: "upgrade"
 
   .modified::marker
-    content: 'edit'
+    content: "edit"
 
   .category::marker
-    content: 'label'
+    content: "label"
 
   .tag
     &::marker
-      content: 'tag'
+      content: "tag"
 
   .author
     &::marker
-      content: 'person'
+      content: "person"
 
     address
       font-style: normal

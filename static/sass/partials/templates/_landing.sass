@@ -17,7 +17,7 @@ main.landing-container
   // $start: 0s
 
   // display: none; // fadeIn with jQuery
-  font-family: "Fira Code", monospace
+  font-family: 'Fira Code', monospace
   text-align: center
 
   .toCode
@@ -75,7 +75,7 @@ main.landing-container
       &::before
         +content-animation((name: add-quote, delay: $start + 1.1s, duration: 1s))
 
-        content: " "
+        content: ' '
 
         // leading space
 
@@ -96,7 +96,7 @@ main.landing-container
 +keyframes-to(color-dev, (color: map-get($atom-colors, red)))
 +keyframes-to(color-id, (color: map-get($atom-colors, orange)))
 +keyframes-to(color-wolf, (color: map-get($atom-colors, green)))
-+keyframes-to(add-open-bracket, (content: "["))
-+keyframes-to(add-closing-bracket, (content: "]"))
++keyframes-to(add-open-bracket, (content: '['))
++keyframes-to(add-closing-bracket, (content: ']'))
 +keyframes-to(add-quote, (content: "'"))
-+keyframes-to(add-equal, (content: "=", color: map-get($atom-colors, purple)))
++keyframes-to(add-equal, (content: '=', color: map-get($atom-colors, purple)))
