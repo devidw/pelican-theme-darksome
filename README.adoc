@@ -1,8 +1,8 @@
-= Pelican Theme Darksome
+= Pelican Darksome Theme
 :toc:
 :toc-placement!:
 
-See https://davidwolf.dev[live example]
+See a live example of the theme in action https://davidwolf.dev[here].
 
 image::screenshot.png[screenshot]
 
@@ -52,10 +52,16 @@ Available frontmatter options in content files:
 
 [source, asciidoc]
 ----
-// <meta name="robots" content="noindex">
-:noindex: true
-
 // <meta name="description" content="">
 // article previews on list pages
 :description: description
+
+// <meta name="robots" content="noindex">
+:noindex: true
 ----
+
+
+== Sponsoring
+The Darksome theme is completely open source and 100% free. If you like it, a small donation is very welcome. 🤗
+
+image:https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg[Buy me a coffee, link="https://buymeacoffee.com/dwolf"]
