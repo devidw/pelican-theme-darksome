@@ -50,4 +50,6 @@ Available frontmatter options in content files:
 ----
 // <meta name="robots" content="noindex">
 :noindex: true
+// <meta name="description" content="">, article previews on list pages
+:description: description
 ----
