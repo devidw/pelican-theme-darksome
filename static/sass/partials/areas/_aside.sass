@@ -1,11 +1,15 @@
 +keyframes-to(fadein, (opacity: 1))
+$duration: 0.2s
 
 // grid of article and aside
 .sidebar-container
   @media (min-width: map-get($breakpoints, md))
     display: grid
-    grid-template-columns: 30% 70%
     grid-column-gap: map-get($sizes, grid-gap)
+    grid-template-columns: 30% 70%
+
+  @media (min-width: map-get($breakpoints, lg))
+    grid-template-columns: 20% 80%
 
 aside
   // cards container
@@ -30,9 +34,6 @@ aside
       color: map-get($colors, lightgrey)
       box-shadow: 0px 0px 35px -12px #000000
 
-      // delay each card fade-in
-      $duration: 0.35s
-
       @for $i from 1 through 5
         &:nth-child(0n+#{$i})
           +animation((name: fadein, duration: $duration, timing-function: ease-in))
@@ -44,6 +45,7 @@ aside
       details
         h3
           margin: 0
+          font-family: map-get($fonts, body)
           text-align: center
           text-transform: uppercase
 
