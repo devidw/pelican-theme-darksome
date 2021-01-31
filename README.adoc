@@ -2,7 +2,7 @@
 :toc:
 :toc-placement!:
 
-See a live example of the theme in action https://davidwolf.dev[here].
+See a https://davidwolf.dev[live example] of the theme in action.
 
 image::screenshot.png[screenshot]
 
@@ -22,7 +22,7 @@ FOOTERTEXT = 'Copyright © 12019 - {0}'.format(date.today().year + 10000) # huma
 
 """links displayed in page footer"""
 FOOTERITEMS = (
-    ('legal', 'legal/'), # title, link (SITEURL will be added automaticly)
+    ('legal', 'legal/'), # title, link (SITEURL will be added automatically)
     ('privacy', 'privacy/'),
 )
 
@@ -30,9 +30,9 @@ FOOTERITEMS = (
 TITLE_SEPARATOR = '-' # Title - Site Name
 
 MEDIA = {
-    'logo': 'media/images/logo.svg',
+    'logo': 'media/images/logo.svg', # home, header
     'favicon': 'media/images/favicon.svg',
-    'background': 'media/images/background.webp', # on home
+    'background': 'media/images/background.webp', # home
 }
 
 """used wherever articles are listed"""
@@ -52,7 +52,7 @@ Available frontmatter options in content files:
 
 [source, asciidoc]
 ----
-// <meta name="description" content="">
+// <meta name="description" content="…">
 // article previews on list pages
 :description: description
 
