@@ -3,10 +3,12 @@
 {% block content %}
 <main class="home container">
 
+  {% if MEDIA and MEDIA['background'] %}
   <img src="{{ SITEURL }}/{{ MEDIA['background'] }}" alt="clouds">
+  {% endif %}
 
   <section>
-    {% if MEDIA['logo'] %}
+    {% if MEDIA and MEDIA['logo'] %}
     <img src="{{ SITEURL }}/{{ MEDIA['logo'] }}" alt="logo">
     <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn7mFsiMJz_2-doVYyFg5B3SEIYai1XvrGaA&usqp=CAU" alt="logo"> -->
     {% endif %}

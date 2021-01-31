@@ -4,6 +4,11 @@
   @media (max-width: map-get($breakpoints, md))
     word-break: break-all
 
+  .entry-title
+    border-bottom: 0.1rem solid map-get($colors, grey)
+    color: map-get($colors, lightgrey)
+    text-align: center
+
   .entry-content
     @for $i from 1 through 6
       h#{$i}

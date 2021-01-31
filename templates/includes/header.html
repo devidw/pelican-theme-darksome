@@ -1,10 +1,10 @@
 <header>
   <div class="container">
     <a href="{{ SITEURL }}/">
-      {% if MEDIA['logo'] and not page_name == 'index' %}
-      <img src="{{ SITEURL }}/{{ MEDIA['logo'] }}" alt="logo">
+      {% if MEDIA and MEDIA['logo'] and not page_name == 'index' %}
+        <img src="{{ SITEURL }}/{{ MEDIA['logo'] }}" alt="logo">
       {% else %}
-      {{ SITENAME }}
+        {{ SITENAME }}
       {% endif %}
     </a>
     <nav>
@@ -24,14 +24,6 @@
             </li>
           {% endfor %}
         {% endif %}
-
-        <!-- {% if DISPLAY_CATEGORIES_ON_MENU and categories %}
-          {% for category, null in categories %}
-            <li>
-              <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
-            </li>
-          {% endfor %}
-        {% endif %} -->
       </ul>
     </nav>
   </div>

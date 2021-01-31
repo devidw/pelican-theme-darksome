@@ -18,7 +18,7 @@
   <meta name="author" content="{{ meta_author }}">
 {% endif %}
 
-{% if MEDIA['favicon'] %}
+{% if MEDIA and MEDIA['favicon'] %}
 <link rel="icon" href="{{ SITEURL }}/{{ MEDIA['favicon'] }}">
 {% endif %}
 
