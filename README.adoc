@@ -1,11 +1,12 @@
 = Pelican Theme Darksome
-
 :toc:
+:toc-placement!:
 
 image::screenshot.png[screenshot]
 
 See https://davidwolf.dev[live example]
 
+toc::[]
 
 == Settings
 Available settings for `pelicanconf.py`:
