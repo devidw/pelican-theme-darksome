@@ -1,0 +1,16 @@
+.promo
+  text-align: center
+
+  a
+    padding: 0.5rem
+    border-radius: map-get($sizes, border-radius)
+    background: map-get($colors, green)
+    color: map-get($colors, dark)
+
+    @media (hover: hover) and (pointer: fine)
+      transition: 0.35s
+
+      &:hover
+        text-decoration: none
+        background: lighten(map-get($colors, green), 10)
+        transition: 0.35s
