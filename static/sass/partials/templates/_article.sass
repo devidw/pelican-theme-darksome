@@ -1,5 +1,20 @@
++keyframes-to(fadein, (opacity: 1))
+$duration: 0.2s
+
 .article
   hyphens: auto
+
+  .card
+    // hide delayed cards
+    opacity: 0
+
+    @for $i from 1 through 5
+      &:nth-child(0n+#{$i})
+        +animation((name: fadein, duration: $duration, timing-function: ease-in))
+
+        @if $i > 1
+          // all the before animations minus the first one
+          animation-delay: $i * $duration - $duration
 
   @media (max-width: map-get($breakpoints, md))
     word-break: break-all
@@ -24,6 +39,19 @@
         & + p
           margin-top: 0
 
+        a[href^='#']
+          margin-left: 0.4rem
+          color: map-get($colors, grey)
+          transition: 0.2s
+
+          &:focus
+            color: map-get($colors, green)
+
+            @media (hover: hover) and (pointer: fine)
+              &:hover
+                color: map-get($colors, green)
+                transition: 0.3s
+
     p
       line-height: 150%
 
@@ -32,16 +60,3 @@
 
       p
         margin: 0
-
-    a[href^='#']
-      margin-left: 0.4rem
-      color: map-get($colors, grey)
-      transition: 0.2s
-
-      &:focus
-        color: map-get($colors, green)
-
-      @media (hover: hover) and (pointer: fine)
-        &:hover
-          color: map-get($colors, green)
-          transition: 0.3s
