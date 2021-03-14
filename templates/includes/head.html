@@ -4,18 +4,8 @@
 
 {% if article and article.noindex or page and page.noindex %}
   <meta name="robots" content="noindex">
-{% endif %}
-
-{% if page and page.description %}
-  <meta name="description" content="{{ page.description }}">
-{% endif %}
-
-{% if article %}
-  {% set meta_author = AUTHOR %}
-  {% if article.author %}
-    {% set meta_author = article.author %}
-  {% endif %}
-  <meta name="author" content="{{ meta_author }}">
+{% else %}
+  <meta name="robots" content="index, follow">
 {% endif %}
 
 {% if MEDIA and MEDIA['favicon'] %}

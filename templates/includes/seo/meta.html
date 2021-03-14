@@ -1,0 +1,66 @@
+{% if SITENAME %}
+<meta name="application-name" content="{{ SITENAME }}">
+<meta property="og:site_name" content="{{ SITENAME }}">
+{% endif %}
+
+<meta name="rating" content="General">
+
+{% set pa = null %}
+
+{% if page or article %}
+  {% if page %}
+    {% set pa = page %}
+    <!-- typeof page -->
+  {% elif article %}
+    {% set pa = article %}
+    <!-- typeof article -->
+  {% endif %}
+
+  <link rel="canonical" href="{{ SITEURL }}/{{ pa.url }}">
+  <meta name="og:url" content="{{ SITEURL }}/{{ pa.url }}">
+  <meta name="twitter:url" content="{{ SITEURL }}/{{ pa.url }}">
+
+  {% if pa.lang %}
+  <meta name="language" content="{{ pa.lang }}">
+  <meta property="og:locale" content="{{ pa.lang }}">
+  {% endif %}
+
+  {% if pa.title %}
+  <meta name="topic" content="{{ pa.title }}">
+  <meta itemprop="name" content="{{ pa.title }}">
+  <meta property="og:title" content="{{ pa.title }}">
+  <meta name="twitter:title" content="{{ pa.title }}">
+  {% endif %}
+
+  {% if pa.description %}
+  <meta name="summary" content="{{ pa.description }}">
+  <meta name="og:description" content="{{ pa.description }}">
+  <meta name="twitter:description" content="{{ pa.description }}">
+  {% endif %}
+
+  {% if pa.category %}
+  <meta name="category" content="{{ pa.category }}">
+  {% endif %}
+
+  {% if pa.tags %}
+  <meta name="keywords" content="{{ pa.tags|join(',') }}">
+  {% endif %}
+
+  {% if pa.date %}
+  <meta property="article:published_time" content="{{ pa.date }}">
+  {% endif %}
+  {% if pa.modified %}
+  <meta property="article:modified_time" content="{{ pa.modified }}">
+  <meta name="revised" content="{{ pa.modified }}">
+  {% endif %}
+
+  {% if AUTHOR or pa.author %}
+    {% if AUTHOR %}
+      {% set meta_author = AUTHOR %}
+    {% elif pa.author %}
+      {% set meta_author = pa.author %}
+    {% endif %}
+    <meta name="author" content="{{ meta_author }}">
+    <meta name="copyright" content="{{ meta_author }}">
+  {% endif %}
+{% endif %}

@@ -9,12 +9,16 @@
         {% if TITLE_SEPARATOR %}
           {{ TITLE_SEPARATOR }}
         {% else %}
-          ―
+          —
         {% endif %}
       {% endif %}
       {{ SITENAME }}
     </title>
     {% include './includes/head.html' %}
+
+    <!-- theme seo start -->
+    {% include './includes/seo/meta.html' %}
+    <!-- theme seo end -->
   {% endblock %}
 </head>
 
