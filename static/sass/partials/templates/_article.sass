@@ -28,14 +28,18 @@ $duration: 0.2s
 
     figure
       margin: 0 0 2rem 0
-      border-radius: map-get($sizes, border-radius)
-      border: $border
-      box-shadow: inset 0 0 1rem 0 map-get($colors, dark)
+      // border-radius: map-get($sizes, border-radius)
+      // border: $border
+      // box-shadow: inset 0 0 1rem 0 map-get($colors, dark)
 
       img
-        position: relative
-        z-index: -1
+        // box-shadow: $box-shadow
+        object-fit: cover
+        // object-position: 100% 50
+
         width: 100%
+        height: calc(var(--container-width) / 4)
+
 
   .entry-content
     // hyphens: auto
