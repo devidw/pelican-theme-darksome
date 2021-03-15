@@ -1,0 +1,15 @@
+{% set pa = null %}
+{% if page %}
+  {% set pa = page %}
+  {% set type = 'page' %}
+{% elif article %}
+  {% set pa = article %}
+  {% set type = 'article' %}
+{% else %}
+  {% set type = 'other' %}
+{% endif %}
+
+{% with pa=pa %}
+  {% include './includes/seo/meta.html' %}
+  {% include './includes/seo/json-ld.html' %}
+{% endwith %}

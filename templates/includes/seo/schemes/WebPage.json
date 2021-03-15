@@ -1,0 +1,11 @@
+"@type": "WebPage",
+
+"url": "{{ SITEURL }}/{{ pa.url }}",
+
+{% if pa.title %}
+"name": "{{ pa.title }}",
+{% endif %}
+
+{% if pa.description %}
+"description": "{{ pa.description }}",
+{% endif %}

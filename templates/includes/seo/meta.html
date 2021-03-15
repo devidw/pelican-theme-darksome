@@ -1,21 +1,14 @@
+<meta name="rating" content="General">
+
 {% if SITENAME %}
 <meta name="application-name" content="{{ SITENAME }}">
 <meta property="og:site_name" content="{{ SITENAME }}">
 {% endif %}
 
-<meta name="rating" content="General">
-
-{% if page or article %}
-  {% set pa = null %}
-  {% set type = null %}
-  {% if page %}
-    {% set pa = page %}
+{% if pa %}
+  {% if type == 'page' %}
     {% set type = 'website' %}
-  {% elif article %}
-    {% set pa = article %}
-    {% set type = 'article' %}
   {% endif %}
-
   <meta property="og:type" content="{{ type }}">
 
   <link rel="canonical" href="{{ SITEURL }}/{{ pa.url }}">

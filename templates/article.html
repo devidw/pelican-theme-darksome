@@ -1,8 +1,8 @@
 {% extends "./layouts/base.html" %}
 
-{% block html_lang %}
+{% block html_lang -%}
 {{ article.lang }}
-{% endblock %}
+{%- endblock %}
 
 {% block title %}
 {{ article.title | striptags }}

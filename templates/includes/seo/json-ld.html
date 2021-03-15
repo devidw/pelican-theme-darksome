@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+	{
+    "@context": "http://schema.org",
+    {% if type == 'article' %}
+      {% with pa=pa %}
+        {% include './includes/seo/schemes/BlogPosting.json' %}
+      {% endwith %}
+    {% elif type == 'page' %}
+      {% with pa=pa %}
+        {% include './includes/seo/schemes/WebPage.json' %}
+      {% endwith %}
+    {% else %}
+    {% endif %}
+	}
+</script>

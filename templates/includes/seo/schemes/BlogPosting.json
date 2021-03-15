@@ -1,0 +1,31 @@
+"@type": "BlogPosting",
+"mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "{{ SITEURL }}"
+},
+
+"url": "{{ SITEURL }}/{{ pa.url }}",
+
+{% if pa.title %}
+"headline": "{{ pa.title }}",
+{% endif %}
+
+{% if pa.description %}
+"description": "{{ pa.description }}",
+{% endif %}
+
+{% if pa.lang %}
+"inLanguage": "{{ pa.lang }}",
+{% endif %}
+
+{% if pa.category %}
+"articleSection": "{{ pa.category }}",
+{% endif %}
+
+{% if pa.date %}
+"datePublished": "{{ pa.date }}",
+{% endif %}
+
+{% if pa.modified %}
+"dateModified": "{{ pa.modified }}",
+{% endif %}
