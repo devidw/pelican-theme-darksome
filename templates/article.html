@@ -8,29 +8,21 @@
 {{ article.title | striptags }}
 {% endblock %}
 
-{% block head %}
-{{ super() }}
-
-{% if article.description %}
-<meta name="description" content="{{ article.description }}" />
-{% endif %}
-
-{% for tag in article.tags %}
-<meta name="tags" content="{{ tag }}" />
-{% endfor %}
-{% endblock %}
-
 {% block content %}
 <main class="article sidebar-container container">
   {% include "./includes/article_aside.html" %}
   <article>
     <header>
-      <h1 class="entry-title">
-        {{ article.title }}
-      </h1>
+      <h1>{{ article.title }}</h1>
       <!-- {% if article.description %}
-      <p>{{ article.description }}</p>
+      {{ article.description }}
       {% endif %} -->
+      {% if article.image %}
+      <figure>
+        <img src="{{ SITEURL }}/{{ article.image }}">
+        <!-- <figcaption></figcaption> -->
+      </figure>
+      {% endif %}
     </header>
     <div class="entry-content">
       {{ article.content }}

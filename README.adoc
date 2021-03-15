@@ -18,21 +18,23 @@ Available settings for `pelicanconf.py`:
 
 from datetime import date
 
+CANONICALURL = 'https:/david🐺.to'
+
 FOOTERTEXT = 'Copyright © 12019 - {0}'.format(date.today().year + 10000) # human era
 
 """links displayed in page footer"""
 FOOTERITEMS = (
-    ('legal', 'legal/'), # title, link (SITEURL will be added automatically)
+    ('legal', 'legal/'), # title, link (SITEURL will be added automaticly)
     ('privacy', 'privacy/'),
 )
 
 """not used on index"""
-TITLE_SEPARATOR = '-' # Title - Site Name
+TITLE_SEPARATOR = '—' # Title — Site Name
 
 MEDIA = {
-    'logo': 'media/images/logo.svg', # home, header
+    'logo': 'media/images/logo.svg',
     'favicon': 'media/images/favicon.svg',
-    'background': 'media/images/background.webp', # home
+    'background': 'media/images/background.webp', # on home
 }
 
 """used wherever articles are listed"""

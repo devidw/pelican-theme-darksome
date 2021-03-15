@@ -5,19 +5,25 @@
 
 <meta name="rating" content="General">
 
-{% set pa = null %}
-
 {% if page or article %}
+  {% set pa = null %}
+  {% set type = null %}
   {% if page %}
     {% set pa = page %}
-    <!-- typeof page -->
+    {% set type = 'website' %}
   {% elif article %}
     {% set pa = article %}
-    <!-- typeof article -->
+    {% set type = 'article' %}
   {% endif %}
 
+  <meta property="og:type" content="{{ type }}">
+
   <link rel="canonical" href="{{ SITEURL }}/{{ pa.url }}">
+  {% if CANONICALURL %}
+  <link rel="canonical" href="{{ CANONICALURL }}/{{ pa.url }}">
+  {% endif %}
   <meta name="og:url" content="{{ SITEURL }}/{{ pa.url }}">
+  <meta property="twitter:domain" content="{{ SITEURL.rpartition('//')[-1].partition('/')[0] }}">
   <meta name="twitter:url" content="{{ SITEURL }}/{{ pa.url }}">
 
   {% if pa.lang %}
@@ -33,9 +39,15 @@
   {% endif %}
 
   {% if pa.description %}
+  <meta name="description" content="{{ pa.description }}" />
   <meta name="summary" content="{{ pa.description }}">
   <meta name="og:description" content="{{ pa.description }}">
   <meta name="twitter:description" content="{{ pa.description }}">
+  {% endif %}
+
+  {% if pa.image %}
+  <meta name="og:image" content="{{ SITEURL }}/{{ pa.image }}">
+  <meta name="twitter:image" content="{{ SITEURL }}/{{ pa.image }}">
   {% endif %}
 
   {% if pa.category %}
