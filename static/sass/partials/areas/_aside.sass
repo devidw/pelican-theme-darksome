@@ -93,18 +93,30 @@ ul.icon-list
     &::marker
       font-family: "Material Icons Outlined"
 
-  .published::marker
-    content: "upgrade"
+  /// link to show all categories/tags/authors
+  .asterix
+    &::marker
+      font-family: map-get($fonts, body)
+      content: "✱"
+      // font-size: 4rem
 
-  .modified::marker
-    content: "edit"
+  .published
+    &::marker
+      content: "upgrade"
 
-  .category::marker
-    content: "label"
+  .modified
+    &::marker
+      content: "edit"
+
+  .category
+    &::marker
+      content: "label"
 
   .tag
     &::marker
-      content: "tag"
+      font-family: map-get($fonts, body)
+      content: "#"
+      // content: "tag"
 
   .author
     &::marker

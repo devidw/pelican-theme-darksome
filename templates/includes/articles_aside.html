@@ -1,13 +1,23 @@
+{% set all_link %}
+<li class="asterix">
+  <a
+  {% if not output_file == ARCHIVES_SAVE_AS %}
+  href="{{ SITEURL }}/{{ ARCHIVES_URL }}"
+  {% endif %}
+  >all</a>
+</li>
+{% endset %}
+
 <aside>
   <div class="cards">
-
-    {% if categories %}
+    {% if categories and 'categories' in SIDEBAR_CARDS %}
     <section class="card">
       <details open>
         <summary>
           <h3>categories</h3>
         </summary>
         <ul class="icon-list">
+          {{ all_link }}
           {% for aside_category, null in categories | sort %}
           <li class="category">
             <a
@@ -24,13 +34,14 @@
     </section>
     {% endif %}
 
-    {% if tags %}
+    {% if tags and 'tags' in SIDEBAR_CARDS %}
     <section class="card">
       <details open>
         <summary>
           <h3>tags</h3>
         </summary>
         <ul class="icon-list">
+          {{ all_link }}
           {% for aside_tag, null in tags | sort %}
           <li class="tag">
             <a
@@ -45,13 +56,14 @@
     </section>
     {% endif %}
 
-    {% if authors %}
+    {% if authors and 'authors' in SIDEBAR_CARDS %}
     <section class="card">
       <details open>
         <summary>
           <h3>authors</h3>
         </summary>
         <ul class="icon-list">
+          {{ all_link }}
           {% for aside_author, null in authors | sort %}
           <li class="author">
             <a
@@ -65,6 +77,5 @@
       </details>
     </section>
     {% endif %}
-
   </div>
 </aside>

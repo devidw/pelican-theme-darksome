@@ -20,6 +20,16 @@ from datetime import date
 
 CANONICALURL = 'https:/david🐺.to'
 
+"""not used on index"""
+TITLE_SEPARATOR = '—' # Title {{ TITLE_SEPARATOR }} Site Name
+
+"""
+decide which cards should be displayed on listing pages
+available: 'categories', 'tags', 'authors'
+"""
+# SIDEBAR_CARDS = ('categories', 'tags', 'authors')
+SIDEBAR_CARDS = ('tags')
+
 FOOTERTEXT = 'Copyright © 12019 - {0}'.format(date.today().year + 10000) # human era
 
 """links displayed in page footer"""
@@ -27,9 +37,6 @@ FOOTERITEMS = (
     ('legal', 'legal/'), # title, link (SITEURL will be added automaticly)
     ('privacy', 'privacy/'),
 )
-
-"""not used on index"""
-TITLE_SEPARATOR = '—' # Title — Site Name
 
 MEDIA = {
     'logo': 'media/images/logo.svg',

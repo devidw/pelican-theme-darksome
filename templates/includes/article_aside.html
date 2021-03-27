@@ -29,9 +29,12 @@
           <!-- tags -->
           {% if article.tags %}
           <li class="tag">
-            {% for tag in article.tags %}
-            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-            {% endfor %}
+            {%- for tag in article.tags | sort -%}
+              <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+              {%- if not loop.last -%}
+                &ensp;
+              {%- endif -%}
+            {%- endfor -%}
           </li>
           {% endif %}
           <!-- author -->
