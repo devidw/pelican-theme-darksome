@@ -12,8 +12,10 @@
   <meta property="og:type" content="{{ type }}">
 
   <link rel="canonical" href="{{ SITEURL }}/{{ pa.url }}">
-  {% if CANONICALURL %}
-  <link rel="canonical" href="{{ CANONICALURL }}/{{ pa.url }}">
+  {% if CANONICALURLS %}
+    {% for url in CANONICALURLS %}
+    <link rel="canonical" href="{{ url }}/{{ pa.url }}">
+    {% endfor %}
   {% endif %}
   <meta name="og:url" content="{{ SITEURL }}/{{ pa.url }}">
   <meta property="twitter:domain" content="{{ SITEURL.rpartition('//')[-1].partition('/')[0] }}">

@@ -1,4 +1,10 @@
 "@type": "BlogPosting",
+
+{# raw insert from config file #}
+{% if JSON_LD and JSON_LD['BlogPosting'] %}
+{{ JSON_LD['BlogPosting'] }}
+{% endif %}
+
 "mainEntityOfPage": {
   "@type": "WebPage",
   "@id": "{{ SITEURL }}"

@@ -1,6 +1,9 @@
 "@type": "WebPage",
 
-"url": "{{ SITEURL }}/{{ pa.url }}",
+{# raw insert from config file #}
+{% if JSON_LD and JSON_LD['WebPage'] %}
+{{ JSON_LD['WebPage'] }}
+{% endif %}
 
 {% if pa.title %}
 "name": "{{ pa.title }}",
@@ -9,3 +12,14 @@
 {% if pa.description %}
 "description": "{{ pa.description }}",
 {% endif %}
+
+{% if CANONICALURLS %}
+"sameAs": [
+  {% for url in CANONICALURLS %}
+  "{{ url }}"
+  {% endfor %}
+],
+{% endif %}
+
+{# fixed property without tailing comma to keep json valid #}
+"url": "{{ SITEURL }}/{{ pa.url }}"

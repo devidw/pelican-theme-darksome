@@ -18,7 +18,10 @@ Available settings for `pelicanconf.py`:
 
 from datetime import date
 
-CANONICALURL = 'https:/david🐺.to'
+CANONICALURLS = (
+    'https://www.davidwolf.dev',
+    'https://www.david🐺.to',
+)
 
 """not used on index"""
 TITLE_SEPARATOR = '—' # Title {{ TITLE_SEPARATOR }} Site Name
