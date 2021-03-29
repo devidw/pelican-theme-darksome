@@ -70,6 +70,13 @@ Available frontmatter options in content files:
 
 // <meta name="robots" content="noindex">
 :noindex: true
+
+// type
+// based on value different json-ld schemes are used
+:type:
+
+// seo JSON-LD
+:jsonld:
 ----
 
 

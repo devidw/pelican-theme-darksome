@@ -1,15 +1,24 @@
 <script type="application/ld+json">
 	{
     "@context": "http://schema.org",
-    {% if type == 'article' %}
-      {% with pa=pa %}
-        {% include './includes/seo/schemes/BlogPosting.json' %}
-      {% endwith %}
-    {% elif type == 'page' %}
-      {% with pa=pa %}
-        {% include './includes/seo/schemes/WebPage.json' %}
-      {% endwith %}
-    {% else %}
-    {% endif %}
+
+		{# raw insert from config file #}
+		{% if JSON_LD %}
+		{{ JSON_LD }}
+		{% endif %}
+
+		{# raw insert from frontmatter #}
+		{% if pa and pa.jsonld %}
+		{{ pa.jsonld }}
+		{% endif %}
+
+		{% with pa=pa %}
+	    {% if type == 'article' %}
+	        {% include './includes/seo/schemes/BlogPosting.json' %}
+	    {% elif type == 'page' %}
+	        {% include './includes/seo/schemes/WebPage.json' %}
+	    {% else %}
+	    {% endif %}
+		{% endwith %}
 	}
 </script>

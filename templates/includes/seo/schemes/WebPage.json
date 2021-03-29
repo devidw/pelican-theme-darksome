@@ -1,10 +1,5 @@
 "@type": "WebPage",
 
-{# raw insert from config file #}
-{% if JSON_LD and JSON_LD['WebPage'] %}
-{{ JSON_LD['WebPage'] }}
-{% endif %}
-
 {% if pa.title %}
 "name": "{{ pa.title }}",
 {% endif %}
@@ -16,7 +11,8 @@
 {% if CANONICALURLS %}
 "sameAs": [
   {% for url in CANONICALURLS %}
-  "{{ url }}"
+    "{{ url }}"
+    {{ ', ' if not loop.last else '' }}
   {% endfor %}
 ],
 {% endif %}

@@ -9,7 +9,13 @@
   {% set type = 'other' %}
 {% endif %}
 
+{% if pa and pa.type %}
+  {% set type = pa.type %}
+{% endif %}
+
+<!-- theme seo (type: {{ type }}) -->
 {% with pa=pa %}
   {% include './includes/seo/meta.html' %}
   {% include './includes/seo/json-ld.html' %}
 {% endwith %}
+<!-- / theme seo -->
