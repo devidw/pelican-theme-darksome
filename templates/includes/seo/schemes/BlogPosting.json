@@ -4,8 +4,6 @@
   "@id": "{{ SITEURL }}"
 },
 
-"url": "{{ SITEURL }}/{{ pa.url }}",
-
 {% if pa.title %}
 "headline": "{{ pa.title }}",
 {% endif %}
@@ -29,3 +27,7 @@
 {% if pa.modified %}
 "dateModified": "{{ pa.modified }}",
 {% endif %}
+
+
+{# fixed property without tailing comma to keep json valid #}
+"url": "{{ SITEURL }}/{{ pa.url }}"
