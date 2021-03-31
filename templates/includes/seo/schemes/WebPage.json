@@ -1,11 +1,17 @@
 "@type": "WebPage",
 
+"url": "{{ SITEURL }}/{{ pa.url }}",
+
 {% if pa.title %}
 "name": "{{ pa.title }}",
 {% endif %}
 
 {% if pa.description %}
 "description": "{{ pa.description }}",
+{% endif %}
+
+{% if pa.tags %}
+"keywords": "{{ pa.tags|join(',') }}",
 {% endif %}
 
 {% if CANONICALURLS %}
@@ -16,6 +22,3 @@
   {% endfor %}
 ],
 {% endif %}
-
-{# fixed property without tailing comma to keep json valid #}
-"url": "{{ SITEURL }}/{{ pa.url }}"

@@ -1,7 +1,5 @@
 <script type="application/ld+json">
 	{
-    "@context": "http://schema.org",
-
 		{# raw insert from config file #}
 		{% if JSON_LD %}
 		{{ JSON_LD }}
@@ -20,5 +18,8 @@
 	    {% else %}
 	    {% endif %}
 		{% endwith %}
+
+		{# last property without tailing comma to keep json valid #}
+		"@context": "http://schema.org"
 	}
 </script>

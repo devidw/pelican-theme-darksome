@@ -4,12 +4,18 @@
   "@id": "{{ SITEURL }}"
 },
 
+"url": "{{ SITEURL }}/{{ pa.url }}",
+
 {% if pa.title %}
 "headline": "{{ pa.title }}",
 {% endif %}
 
 {% if pa.description %}
 "description": "{{ pa.description }}",
+{% endif %}
+
+{% if pa.tags %}
+"keywords": "{{ pa.tags|join(',') }}",
 {% endif %}
 
 {% if pa.lang %}
@@ -28,6 +34,6 @@
 "dateModified": "{{ pa.modified }}",
 {% endif %}
 
-
-{# fixed property without tailing comma to keep json valid #}
-"url": "{{ SITEURL }}/{{ pa.url }}"
+{% if pa.image %}
+"image": "{{ SITEURL }}/{{ pa.image }}",
+{% endif %}

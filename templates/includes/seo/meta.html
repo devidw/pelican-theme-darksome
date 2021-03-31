@@ -40,9 +40,15 @@
   <meta name="twitter:description" content="{{ pa.description }}">
   {% endif %}
 
-  {% if pa.image %}
-  <meta name="og:image" content="{{ SITEURL }}/{{ pa.image }}">
-  <meta name="twitter:image" content="{{ SITEURL }}/{{ pa.image }}">
+  {% if pa.image or (MEDIA and MEDIA['og-image']) %}
+  {% set image = '' %}
+    {% if pa.image %}
+      {% set image = pa.image %}
+    {% elif MEDIA['og-image'] %}
+      {% set image = MEDIA['og-image'] %}
+    {% endif %}
+    <meta name="og:image" content="{{ SITEURL }}/{{ image }}">
+    <meta name="twitter:image" content="{{ SITEURL }}/{{ image }}">
   {% endif %}
 
   {% if pa.category %}
