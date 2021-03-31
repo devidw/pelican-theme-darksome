@@ -1,4 +1,4 @@
-<header>
+<nav>
   <div class="container">
     <a href="{{ SITEURL }}/">
       {% if MEDIA and MEDIA['logo'] and not page_name == 'index' %}
@@ -7,8 +7,12 @@
         {{ SITENAME }}
       {% endif %}
     </a>
-    <nav>
-      <ul class="inline-list">
+
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle"></label>
+
+    <div class="menu">
+      <ul>
         {% if MENUITEMS %}
           {% for title, link in MENUITEMS %}
             <li>
@@ -25,6 +29,6 @@
           {% endfor %}
         {% endif %}
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>

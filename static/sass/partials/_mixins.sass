@@ -12,3 +12,13 @@
     animation-#{$property}: $value
   // keep styles after animation finished
   animation-fill-mode: forwards
+
+///
+=inline-list()
+  padding-left: 0
+
+  li
+    display: inline
+
+    & + li
+      margin-left: .6rem

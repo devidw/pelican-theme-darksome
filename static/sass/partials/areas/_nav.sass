@@ -1,6 +1,59 @@
-nav
-  li
-    list-style-type: none
+body > nav
+  z-index: 1
+  position: fixed
+  left: 0
+  right: 0
+  padding: calc(var(--header-height) / 3) 0
+  -webkit-backdrop-filter: blur(100px)
+  backdrop-filter: blur(100px)
 
-    a[data-active='true']
+  .container
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    @media (max-width: map-get($breakpoints, md))
+      align-items: flex-start
+
+    & > a
+      font-weight: bold
+      text-transform: uppercase
+      letter-spacing: 1px
       color: map-get($colors, lightgrey)
+      $drop-shadow: drop-shadow(0 0 0.5rem map-get($colors, blue))
+
+      &[href]
+        @media (hover: hover) and (pointer: fine)
+          transition: 0.15s
+
+          &:hover
+            text-decoration: none
+            filter: $drop-shadow
+            transition: 0.15s
+
+      &:focus
+        filter: $drop-shadow
+
+
+      img
+        width: calc(var(--header-height) / 2)
+        height: calc(var(--header-height) / 2)
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7))
+
+    div.menu
+      // mobile menu
+      @media (max-width: map-get($breakpoints, md))
+        // make visible by button toggle
+        display: none
+
+      ul
+        margin: 0
+
+        @media (min-width: map-get($breakpoints, md))
+          +inline-list()
+
+        li
+          list-style-type: none
+
+          a[data-active='true']
+            color: map-get($colors, lightgrey)

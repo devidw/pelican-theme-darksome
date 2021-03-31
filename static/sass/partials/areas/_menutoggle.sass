@@ -1,0 +1,30 @@
+#menu-toggle
+  display: none
+
+#menu-toggle:checked ~ .menu
+  display: block
+
+// open toggler
+#menu-toggle ~ label
+  &::after
+    content: '+'
+
+// close toggler
+#menu-toggle:checked ~ label
+  &::after
+    content: '×'
+
+label[for=menu-toggle]
+  z-index: 2
+  width: calc(var(--header-height) / 2)
+  height: calc(var(--header-height) / 2)
+  border-radius: calc(var(--header-height) / 2 / 2)
+  line-height: calc(var(--header-height) / 2)
+  text-align: center
+  font-family: map-get($fonts, head)
+  font-size: 2rem
+  color: map-get($colors, lightgrey)
+
+  // only visible on small screens
+  @media (min-width: map-get($breakpoints, md))
+    display: none
