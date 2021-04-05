@@ -9,15 +9,23 @@ Category {{ category }}
 
   {% include './includes/articles_aside.html' %}
 
-  <ol id="post-entries">
-    {% for article in articles %}
-      {% if article.category == article.category %}
-        <li>
-          {% include './includes/article_preview.html' %}
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ol>
+  <article>
+    <header>
+      <h1>
+        <i class="icon">label</i>
+        {{ category }}
+      </h1>
+    </header>
+    <ol id="post-entries">
+      {% for article in articles %}
+        {% if article.category == article.category %}
+          <li>
+            {% include './includes/article_preview.html' %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </article>
 
 </main>
 {% endblock %}

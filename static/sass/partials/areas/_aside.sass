@@ -39,6 +39,7 @@ aside
 
         li
           margin-bottom: 0.5rem
+          list-style-type: none
 
         &[open]
           h3
@@ -52,7 +53,7 @@ aside
         summary
           list-style: none
 
-          &::marker
+          &::marker, &::-webkit-details-marker
             display: none
 
           @media (hover: hover) and (pointer: fine)
@@ -79,9 +80,10 @@ aside
         max-height: 50vh
         overflow-y: scroll
 
-        @for $i from 2 through 6
-          li[data-nav-level='#{$i}']
-            margin-left: #{$i * 0.5}rem
+        li
+          @for $i from 2 through 6
+            &[data-nav-level='#{$i}']
+              margin-left: #{$i * 0.5}rem
 
 ul.icon-list
   padding-left: 1rem
@@ -98,7 +100,6 @@ ul.icon-list
     &::marker
       font-family: map-get($fonts, body)
       content: "✱"
-      // font-size: 4rem
 
   .published
     &::marker

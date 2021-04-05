@@ -25,7 +25,11 @@
       {% endif %}
     </header>
     <div class="entry-content">
-      {{ article.content }}
+      {% if article.content %}
+        {{ article.content }}
+      {% else %}
+        {{ article }}
+      {% endif %}
     </div>
   </article>
 </main>
