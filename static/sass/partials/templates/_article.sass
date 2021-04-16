@@ -22,15 +22,15 @@ $duration: 0.2s
   header
     h1
       padding-bottom: 0.5rem
-      border-bottom: 0.1rem solid map-get($colors, grey)
-      color: map-get($colors, lightgrey)
+      border-bottom: 0.1rem solid map-get($colors, 'grey')
+      color: map-get($colors, 'lightgrey')
       text-align: center
 
     figure
       margin: 0 0 2rem 0
       // border-radius: map-get($sizes, border-radius)
       // border: $border
-      // box-shadow: inset 0 0 1rem 0 map-get($colors, dark)
+      // box-shadow: inset 0 0 1rem 0 map-get($colors, 'dark')
 
       img
         // box-shadow: $box-shadow
@@ -47,12 +47,12 @@ $duration: 0.2s
     @for $i from 1 through 6
       h#{$i}
         padding-bottom: 2rem / $i
-        border-bottom: 0.1rem solid map-get($colors, grey)
+        border-bottom: 0.1rem solid map-get($colors, 'grey')
         margin: (8rem / $i) 0 0.5rem 0
         font-size: 6rem / $i
 
         @if $i > 1
-          color: darken(map-get($colors, green), 3 * $i)
+          color: darken(map-get($colors, 'green'), 3 * $i)
 
         @media (max-width: map-get($breakpoints, md))
           word-break: break-all
@@ -62,15 +62,15 @@ $duration: 0.2s
 
         a[href^='#']
           margin-left: 0.4rem
-          color: map-get($colors, grey)
+          color: map-get($colors, 'grey')
           transition: 0.2s
 
           &:focus
-            color: map-get($colors, green)
+            color: map-get($colors, 'green')
 
             @media (hover: hover) and (pointer: fine)
               &:hover
-                color: map-get($colors, green)
+                color: map-get($colors, 'green')
                 transition: 0.3s
 
     p

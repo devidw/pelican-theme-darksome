@@ -19,8 +19,8 @@ body > nav
       font-weight: bold
       text-transform: uppercase
       letter-spacing: 1px
-      color: map-get($colors, lightgrey)
-      $drop-shadow: drop-shadow(0 0 0.5rem map-get($colors, blue))
+      color: map-get($colors, 'lightgrey')
+      $drop-shadow: drop-shadow(0 0 0.5rem map-get($colors, 'blue'))
 
       &[href]
         @media (hover: hover) and (pointer: fine)
@@ -56,4 +56,4 @@ body > nav
           list-style-type: none
 
           a[data-active='true']
-            color: map-get($colors, lightgrey)
+            color: map-get($colors, 'lightgrey')

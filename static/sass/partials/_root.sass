@@ -1,4 +1,8 @@
 \:root
+  --header-height: 3rem
+
+  @each $key, $value in $colors
+    --color-#{$key}: #{$value}
 
   @each $device, $breakpoint in $breakpoints
     --breakpoint-#{$device}: #{$breakpoint}
@@ -6,5 +10,3 @@
   @each $device, $width in $breakpoints
     @media (min-width: $width)
       --container-width: #{map-get($container-widths, $device)}
-
-  --header-height: 3rem

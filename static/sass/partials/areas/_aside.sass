@@ -26,8 +26,8 @@ aside
       padding: 1rem
       border-radius: map-get($sizes, border-radius)
       margin-bottom: 1rem
-      background: map-get($colors, grey)
-      color: map-get($colors, lightgrey)
+      background: map-get($colors, 'grey')
+      color: map-get($colors, 'lightgrey')
       box-shadow: $box-shadow
 
       details
@@ -43,7 +43,7 @@ aside
 
         &[open]
           h3
-            border-bottom: 0.1rem dashed transparentize(map-get($colors, lightgrey), 0.5)
+            border-bottom: 0.1rem dashed transparentize(map-get($colors, 'lightgrey'), 0.5)
             padding-bottom: 0.3rem
             margin-bottom: 1rem
 
@@ -64,7 +64,7 @@ aside
             outline: none
 
             h3::before
-              color: map-get($colors, blue)
+              color: map-get($colors, 'blue')
 
           h3::before
             content: "+ "

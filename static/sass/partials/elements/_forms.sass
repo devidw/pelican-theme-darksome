@@ -18,16 +18,16 @@ input[type="text"], input[type="search"], textarea, button
   border-radius: 0.3rem
   margin-bottom: 1rem
   outline: none
-  color: map-get($colors, light)
+  color: map-get($colors, 'light')
 
   &:focus
-    border-color: map-get($colors, blue)
+    border-color: map-get($colors, 'blue')
 
     &:invalid
-      border-color: map-get($colors, red)
+      border-color: map-get($colors, 'red')
 
 input[type="text"], input[type="search"], textarea
-  border-color: map-get($colors, grey)
+  border-color: map-get($colors, 'grey')
   background: transparent
 
 textarea
@@ -37,19 +37,19 @@ textarea
 
 button
   padding: 0.35rem 0.5rem
-  border-color: lighten(map-get($colors, grey), 15%)
-  background: map-get($colors, grey)
+  border-color: lighten(map-get($colors, 'grey'), 15%)
+  background: map-get($colors, 'grey')
 
   &:focus
-    background: map-get($colors, darkgrey)
-    color: map-get($colors, blue)
+    background: map-get($colors, 'darkgrey')
+    color: map-get($colors, 'blue')
 
   @media (hover: hover) and (pointer: fine)
     transition: 0.15s
 
     &:hover
       cursor: pointer
-      border-color: map-get($colors, blue)
-      background: map-get($colors, darkgrey)
-      color: map-get($colors, blue)
+      border-color: map-get($colors, 'blue')
+      background: map-get($colors, 'darkgrey')
+      color: map-get($colors, 'blue')
       transition: 0.15s

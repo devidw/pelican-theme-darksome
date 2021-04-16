@@ -7,15 +7,15 @@ html
     letter-spacing: 0.05rem
 
 \::selection
-  background: map-get($colors, green)
-  color: map-get($colors, dark)
+  background: map-get($colors, 'green')
+  color: map-get($colors, 'dark')
 
 a
   outline: none
   text-decoration: none
 
   &[href]
-    color: map-get($colors, blue)
+    color: map-get($colors, 'blue')
 
   &:not([href])
     cursor: not-allowed
@@ -30,5 +30,5 @@ a
 
 hr
   border-style: solid
-  border-color: map-get($colors, lightgrey)
+  border-color: map-get($colors, 'lightgrey')
   border-radius: 1px
