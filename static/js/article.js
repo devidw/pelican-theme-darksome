@@ -34,4 +34,32 @@ $(function() {
     $('aside nav').hide();
   }
 
-})
+
+  /**
+   * share data for native share dialog
+   */
+  let shareCard = $('.share');
+  let shareBtn = shareCard.find('button');
+  // console.log(shareBtn);
+
+  // collect share data and set function to call
+  if (navigator.share) {
+    const shareData = {
+      title: document.title,
+      text: '',
+      url: document.href,
+    }
+    let description = $('meta[name="description"]').attr('content');
+    if (description) {
+      shareData.text = description;
+    }
+    shareBtn.click(function() {
+      navigator.share(shareData);
+    });
+  }
+  // no browser support, hide sharing card
+  else {
+    shareCard.hide();
+  }
+
+});

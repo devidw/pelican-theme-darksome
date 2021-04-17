@@ -29,11 +29,11 @@ aside
       background: map-get($colors, 'grey')
       color: map-get($colors, 'lightgrey')
       box-shadow: $box-shadow
+      font-family: map-get($fonts, head)
 
       details
         h3
           margin: 0
-          font-family: map-get($fonts, body)
           text-align: center
           text-transform: uppercase
 
@@ -115,7 +115,7 @@ ul.icon-list
 
   .tag
     &::marker
-      font-family: map-get($fonts, body)
+      font-family: map-get($fonts, head)
       content: "#"
       // content: "tag"
 
