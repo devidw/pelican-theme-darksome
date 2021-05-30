@@ -5,13 +5,21 @@
         {{ article.title }}
       </a>
       {% if TRANSLATIONS and TRANSLATIONS[article.lang]['flag'] %}
-        <span>{{ TRANSLATIONS[article.lang]['flag'] }}</span>
+      <span class="translations">
+        [{{ TRANSLATIONS[article.lang]['flag'] }}
+        {%- if article.translations -%}
+          {%- for translation in article.translations -%}
+            <a href="{{ SITEURL }}/{{ translation.url }}" rel="translation">{{ TRANSLATIONS[translation.lang]['flag'] }}</a>
+          {%- endfor -%}
+        {%- endif -%}
+        ]
+      </span>
       {% endif %}
     </h2>
   </header>
   <section>
     {% if article.description %}
-      <span>{{ article.description }}</span>
+    <span>{{ article.description }}</span>
     {% endif %}
   </section>
 </article>

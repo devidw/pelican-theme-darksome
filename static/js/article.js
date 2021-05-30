@@ -25,7 +25,7 @@ $(function() {
 
       // headlines
       $(e).attr('id', i);
-      $(`<a href='#${i}'><i class='icon'>link</i></a>`).appendTo(e);
+      $(`<a href='#${i}'><i class="material-icons">link</i></a>`).appendTo(e);
 
     });
   }
@@ -46,13 +46,15 @@ $(function() {
   if (navigator.share) {
     const shareData = {
       title: document.title,
-      text: '',
-      url: document.href,
+      text: '', // insert description here when available
+      url: location.href,
     }
+
     let description = $('meta[name="description"]').attr('content');
     if (description) {
       shareData.text = description;
     }
+
     shareBtn.click(function() {
       navigator.share(shareData);
     });
