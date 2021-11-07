@@ -1,12 +1,12 @@
 = Pelican Darksome Theme
-:toc:
-:toc-placement!:
+//:toc:
+//:toc-placement!:
 
-See a https://david🐺.to[live example] of the theme in action.
+//See a https://david🐺.to[live example] of the theme in action.
 
 image::screenshot.png[screenshot]
 
-toc::[]
+//toc::[]
 
 
 == Settings
