@@ -1,4 +1,4 @@
-= Pelican Darksome Theme
+= Pelican Theme Darksome 
 //:toc:
 //:toc-placement!:
 
