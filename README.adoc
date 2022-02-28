@@ -37,7 +37,7 @@ FOOTERTEXT = 'Copyright © 12019 - {0}'.format(date.today().year + 10000) # huma
 
 """links displayed in page footer"""
 FOOTERITEMS = (
-    ('legal', 'legal/'), # title, link (SITEURL will be added automaticly)
+    ('legal', 'legal/'), # title, link (SITEURL will be added automatically)
     ('privacy', 'privacy/'),
 )
 
